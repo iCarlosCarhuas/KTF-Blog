@@ -1,5 +1,6 @@
 package com.app.ktf.blog.entity.security;
 
+import com.app.ktf.blog.entity.PersonEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ public class AccesoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "access_id")
-    private Long id;
+    private Long acceso_id;
 
     @ManyToOne
     @JoinColumn(name = "profile_id", nullable = false)

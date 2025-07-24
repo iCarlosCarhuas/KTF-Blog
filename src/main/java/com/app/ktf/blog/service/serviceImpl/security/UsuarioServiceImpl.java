@@ -1,8 +1,9 @@
-package com.app.ktf.blog.service.serviceImpl;
+package com.app.ktf.blog.service.serviceImpl.security;
 
 import com.app.ktf.blog.entity.security.UsuarioEntity;
 import com.app.ktf.blog.repository.security.UsuarioRepository;
 import com.app.ktf.blog.service.security.UsuarioService;
+import com.app.ktf.blog.service.serviceImpl.GenericServiceImpl;
 import com.app.ktf.blog.util.BCryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioServiceImpl extends GenericServiceImpl<UsuarioEntity,Long> implements UsuarioService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
+
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+        super(usuarioRepository);
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     public Optional<UsuarioEntity> findByCorreo(String correo) {

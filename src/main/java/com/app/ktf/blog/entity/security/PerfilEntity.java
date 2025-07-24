@@ -15,7 +15,7 @@ public class PerfilEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "profile_id")
-    private Long id;
+    private Long profile_id;
 
     @Column(name = "profile_name")
     private String profileName;

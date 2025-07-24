@@ -1,5 +1,6 @@
 package com.app.ktf.blog.entity.security;
 
+import com.app.ktf.blog.entity.PersonEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
@@ -19,25 +20,15 @@ public class UsuarioEntity implements Serializable {
     @Column(name="user_publicID")
     private String publicId; // UUID public identifier
 
-    @Column(name = "user_image")
-    private String userImage;
-
-    private String username;
-
-    private String name;
-
-    @Column(name = "last_name")
-    private String lastName;
-
     private String email;
 
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private RolEntity rol;
+    @JoinColumn(name = "access_id")
+    private AccesoEntity acceso;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profile_id")
-    private PerfilEntity perfil;
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
 }

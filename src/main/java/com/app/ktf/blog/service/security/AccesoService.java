@@ -1,4 +1,7 @@
 package com.app.ktf.blog.service.security;
 
-public interface AccesoService {
+import com.app.ktf.blog.entity.security.AccesoEntity;
+import com.app.ktf.blog.service.GenericService;
+
+public interface AccesoService extends GenericService<AccesoEntity, Long>{
 }

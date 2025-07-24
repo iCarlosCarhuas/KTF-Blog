@@ -1,4 +1,6 @@
 package com.app.ktf.blog.service;
 
-public interface PersonService {
+import com.app.ktf.blog.entity.PersonEntity;
+
+public interface PersonService extends GenericService<PersonEntity,Long>{
 }

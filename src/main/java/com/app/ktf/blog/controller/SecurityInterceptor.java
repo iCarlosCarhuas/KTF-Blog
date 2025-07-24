@@ -29,7 +29,7 @@ public class SecurityInterceptor {
         }
 
         if (url.startsWith("/admin") &&
-                (loggedInUser == null || !loggedInUser.getRol().getNombreRol().equals("ROLE_ADMIN"))) {
+                (loggedInUser == null || !loggedInUser.getAcceso().getRol().getRoleName().equals("ROLE_ADMIN"))) {
             response.sendRedirect("/posts");
         }
     }

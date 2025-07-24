@@ -1,4 +1,4 @@
-package com.app.ktf.blog.repository;
+package com.app.ktf.blog.repository.security;
 
 import com.app.ktf.blog.entity.security.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

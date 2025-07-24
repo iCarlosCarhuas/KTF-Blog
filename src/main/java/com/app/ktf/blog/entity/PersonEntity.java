@@ -3,14 +3,16 @@ package com.app.ktf.blog.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
-@Table(name = "profile")
-public class ProfileEntity {
+@Table(name = "person")
+public class PersonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "profile_id")
+    @Column(name = "person_id")
     private Long id;
 
     @Column(name = "user_image")
@@ -23,6 +25,6 @@ public class ProfileEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    private Integer age;
+    private LocalDate birthdate;
 
 }

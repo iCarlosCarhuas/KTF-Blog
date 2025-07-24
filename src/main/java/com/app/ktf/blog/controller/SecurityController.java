@@ -1,7 +1,7 @@
 package com.app.ktf.blog.controller;
 
 import com.app.ktf.blog.entity.security.UsuarioEntity;
-import com.app.ktf.blog.service.UsuarioService;
+import com.app.ktf.blog.service.security.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
