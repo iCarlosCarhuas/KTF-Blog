@@ -1,8 +1,8 @@
 package com.app.ktf.blog.service.serviceImpl;
 
 import com.app.ktf.blog.entity.security.UsuarioEntity;
-import com.app.ktf.blog.repository.UsuarioRepository;
-import com.app.ktf.blog.service.UsuarioService;
+import com.app.ktf.blog.repository.security.UsuarioRepository;
+import com.app.ktf.blog.service.security.UsuarioService;
 import com.app.ktf.blog.util.BCryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
