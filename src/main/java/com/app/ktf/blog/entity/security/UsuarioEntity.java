@@ -1,4 +1,4 @@
-package com.app.ktf.blog.entity;
+package com.app.ktf.blog.entity.security;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,29 +8,36 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="usuarios")
+@Table(name = "users")
 public class UsuarioEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "usuario_id")
-    private Integer id;
+    @Column(name = "user_id")
+    private Long id;
 
-    private String nombre;
-    private String apellido;
-    private Integer dni;
-    private String correo;
-    private String contraseña;
+    @Column(name="user_publicID")
+    private String publicId; // UUID public identifier
+
+    @Column(name = "user_image")
+    private String userImage;
+
+    private String username;
+
+    private String name;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    private String email;
+
+    private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "rol_id")
+    @JoinColumn(name = "role_id")
     private RolEntity rol;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "membresia_id")
-    private MembresiaEntity membresia;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "perfil_id")
+    @JoinColumn(name = "profile_id")
     private PerfilEntity perfil;
 }

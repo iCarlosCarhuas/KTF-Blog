@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### SQL ###
+
+src/main/resources/schema.sql
+src/main/resources/data.sql

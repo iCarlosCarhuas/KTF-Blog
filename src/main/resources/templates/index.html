@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>KTF Blog | Home</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
-$END$
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container mt-4" style="margin-left: 240px;"> <!-- adjust margin for sidebar -->
+    <h1 class="mb-4">Latest Posts</h1>
+
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="post : ${posts}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${post.title}">Post Title</h5>
+                    <p class="card-text" th:text="${#strings.abbreviate(post.content, 100)}">Post content snippet...</p>
+                    <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

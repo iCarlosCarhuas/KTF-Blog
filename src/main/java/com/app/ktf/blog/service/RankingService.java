@@ -1,4 +1,6 @@
 package com.app.ktf.blog.service;
 
-public interface RankingService {
+import com.app.ktf.blog.entity.RankingEntity;
+
+public interface RankingService extends GenericService<RankingEntity, Long>{
 }

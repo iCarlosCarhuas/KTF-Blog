@@ -1,10 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <style>
+    /* Side navbar styles */
+    .side-navbar {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 220px;
+        background-color: #343a40;
+        padding-top: 20px;
+        transition: all 0.3s;
+    }
+
+    .side-navbar:hover {
+        width: 250px;
+    }
+
+    .side-navbar a {
+        color: #ddd;
+        padding: 10px 20px;
+        display: block;
+        text-decoration: none;
+    }
+
+    .side-navbar a:hover {
+        background-color: #495057;
+        color: #fff;
+    }
+
+    .side-navbar .brand {
+        color: #fff;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+        display: block;
+    }
+  </style>
 </head>
 <body>
-$END$
+
+<div class="side-navbar" th:fragment="navbar">
+  <a class="brand" th:href="@{/}">KTF Blog</a>
+
+  <a th:href="@{/profile/}" th:if="${session.loggedInUser != null}">
+    <i class="bi bi-person"></i> Mi Perfil
+  </a>
+
+  <a th:href="@{/posts}">
+    <i class="bi bi-journal-text"></i> Posts Recientes
+  </a>
+
+  <a href="#">
+    <i class="bi bi-search"></i> Buscar
+  </a>
+
+  <a th:href="@{/security/login}" th:if="${session.loggedInUser == null}">
+    <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+  </a>
+
+  <a th:href="@{/security/register}" th:if="${session.loggedInUser == null}">
+    <i class="bi bi-person-plus"></i> Registrarse
+  </a>
+
+  <a th:href="@{/security/logout}" th:if="${session.loggedInUser != null}">
+    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+  </a>
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.10.0/font/bootstrap-icons.css}">
 </body>
 </html>

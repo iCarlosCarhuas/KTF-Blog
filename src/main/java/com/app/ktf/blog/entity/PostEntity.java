@@ -1,5 +1,6 @@
-package com.app.ktf.blog.entity.security;
+package com.app.ktf.blog.entity;
 
+import com.app.ktf.blog.entity.security.UsuarioEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
@@ -16,6 +17,11 @@ public class PostEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
 
     @Column(nullable = false)
     private String title;

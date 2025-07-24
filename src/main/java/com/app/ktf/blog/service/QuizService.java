@@ -1,4 +1,6 @@
 package com.app.ktf.blog.service;
 
-public interface QuizService {
+import com.app.ktf.blog.entity.QuizEntity;
+
+public interface QuizService extends GenericService<QuizEntity, Long> {
 }

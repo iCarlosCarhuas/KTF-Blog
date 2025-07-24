@@ -1,4 +1,15 @@
 package com.app.ktf.blog.service;
+import java.util.List;
+import java.util.Optional;
 
-public interface GenericService {
+public interface GenericService<T, ID> {
+
+    List<T> findAll();
+
+    Optional<T> findById(ID id);
+
+    T save(T entity);
+
+    void deleteById(ID id);
 }
+
